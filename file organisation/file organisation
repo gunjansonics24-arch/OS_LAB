@@ -1,0 +1,86 @@
+#include <stdio.h>
+#include <string.h>
+
+void singleLevel()
+{
+    int n;
+    char files[50][50];
+
+    printf("\nSingle Level Directory\n");
+    printf("Enter number of files: ");
+    scanf("%d", &n);
+
+    for (int i = 0; i < n; i++)
+    {
+        printf("Enter file %d name: ", i + 1);
+        scanf("%s", files[i]);
+    }
+
+    printf("Files in directory:\n");
+
+    for (int i = 0; i < n; i++)
+        printf("%s\n", files[i]);
+}
+
+void twoLevel()
+{
+    int users, files;
+    char user[50], filename[50];
+
+    printf("\nTwo Level Directory\n");
+    printf("Enter number of users: ");
+    scanf("%d", &users);
+
+    for (int i = 0; i < users; i++)
+    {
+        printf("Enter user name: ");
+        scanf("%s", user);
+
+        printf("Enter number of files for %s: ", user);
+        scanf("%d", &files);
+
+        printf("Files of %s:\n", user);
+
+        for (int j = 0; j < files; j++)
+        {
+            scanf("%s", filename);
+            printf("%s\n", filename);
+        }
+    }
+}
+
+void hierarchical()
+{
+    int dirs, files;
+    char dirname[50], filename[50];
+
+    printf("\nHierarchical Directory\n");
+    printf("Enter number of directories: ");
+    scanf("%d", &dirs);
+
+    for (int i = 0; i < dirs; i++)
+    {
+        printf("Enter directory name: ");
+        scanf("%s", dirname);
+
+        printf("Enter number of files in %s: ", dirname);
+        scanf("%d", &files);
+
+        printf("Files in %s:\n", dirname);
+
+        for (int j = 0; j < files; j++)
+        {
+            scanf("%s", filename);
+            printf("%s/%s\n", dirname, filename);
+        }
+    }
+}
+
+int main()
+{
+    singleLevel();
+    twoLevel();
+    hierarchical();
+
+    return 0;
+}
